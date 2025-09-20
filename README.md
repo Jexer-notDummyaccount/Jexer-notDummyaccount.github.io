@@ -1,6 +1,6 @@
 <!-- Profile README for Jexer Castillo -->
 
-<h1 align="center">Hi there, I'm Jexer Castillo 👋</h1>
+<h1 align="center">Hi there, I'm Jexer Jake T. Castillo 👋</h1>
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=00FFDD&center=true&vCenter=true&width=435&lines=Never+rest+at+the+middle.;Student+%7C+Learning+Python+%26+HTML;Let's+code+something+awesome!" alt="Typing animation" />
