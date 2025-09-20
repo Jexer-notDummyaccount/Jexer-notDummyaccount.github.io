@@ -1,6 +1,6 @@
 <!-- Profile README for Jexer Castillo -->
 
-<h1 align="center">Hi there, I'm Jexer Castillo 👋</h1>
+<h1 align="center">Hi there, I'm Jexer Jake T. Castillo 👋</h1>
 <p align="center">
   <em>“Never rest at the middle.”</em><br>
   🎓 Student | 💻 Learning Python & HTML<br>
