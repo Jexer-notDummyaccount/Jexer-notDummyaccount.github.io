@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jexer Jake | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Welcome to Jexer Jake's Portfolio and Creative Space." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      color: #f0f0f0;
+      background: url('img/l8.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.65);
+      z-index: 0;
+    }
+
+    header, nav, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .header-text h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00c6ff;
+      margin: 0;
+    }
+
+    .header-text p {
+      font-size: 0.95rem;
+      color: #cce0ff;
+      margin: 5px 0 0;
+    }
+
+      /* Navigation Styling */
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    nav a, .dropbtn {
+      color: #f0f0f0;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Quicksand', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover, .dropbtn:hover {
+      background-color: #00c6ff;
+      color: #000;
+    }
+
+    /* Dropdown Container */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #111;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Dropdown Content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .dropdown-content a {
+      color: #f0f0f0;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #00c6ff;
+      color: #000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #00c6ff;
+      color: #000;
+    }
+
+
+
+    /* Hero Section */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero-text {
+      max-width: 800px;
+      background: rgba(0,0,0,0.65);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      margin-bottom: 50px;
+    }
+
+    .hero-text h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #00c6ff;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #cce0ff;
+    }
+
+    /* Story Section */
+    .story-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 50px 20px;
+      flex-wrap: wrap;
+    }
+
+    .story-image img {
+      width: 200px;
+      height: 550px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .story-text {
+      max-width: 800px;
+      background: rgba(0,0,0,0.65);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      color: #cce0ff;
+      text-align: left;
+    }
+
+    .story-text h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #00c6ff;
+      margin-bottom: 20px;
+    }
+
+    .story-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+   /* Footer */
+footer {
+  background-color: rgba(0,0,0,0.8);
+  color: #ccc;
+  text-align: center;
+  padding: 40px 20px; /* increased height */
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00c6ff;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-size: 1rem;
+  transition: transform 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.social-links a:hover {
+  color: #00c6ff;
+  transform: scale(1.1);
+}
+
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  color: #cce0ff;
+}
+
+.contact-info a {
+  color: #00c6ff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+footer .copyright {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+/* Responsive footer */
+@media (max-width: 600px) {
+  footer {
+    padding: 30px 10px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  footer h3 {
+    font-size: 1.3rem;
+  }
+
+  .contact-info p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-container {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav a, .dropbtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static;
+    background-color: rgba(0,0,0,0.85);
+    box-shadow: none;
+  }
+
+  .dropdown-content a {
+    padding: 10px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="img/logo1.png" alt="Profile picture of Jexer Jake T. Castillo">
+      <div class="header-text">
+        <h1>Jexer Jake's Zone</h1>
+        <p>Your gateway to creativity & innovation</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+	<a href="gal.html">Gallery</a>
+	<a href="res.html">Portfolio</a>
+    </div>
+	<a href="about.html">About Us</a>	
+    <a href="con.html">Contacts</a>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <main>
+    <div class="hero-text">
+      <h2>“Creativity is intelligence having fun.”</h2>
+      <p>Explore my work, experience, and journey as I turn ideas into reality through design, development, and innovation.</p>
+    </div>
+
+    <!-- Story Section -->
+    <div class="story-section">
+      <div class="story-image">
+        <img src="img/m8.jpeg" alt="Profile picture of Jexer Jake T. Castillo">
+      </div>
+      <div class="story-text">
+        <h3>Never rest at the middle!</h3>
+        <p>Jake grew up in a small town where opportunities seemed limited, but his imagination was limitless...</p>
+        <p>By the time he was seventeen, he had already built a few small apps...</p>
+        <p>After high school, Ethan enrolled in a modest college known for its Information Technology program...</p>
+        <p>He poured his heart into the project...</p>
+        <p>The journey was far from easy...</p>
+        <p>Five years later, Ethan stood on the stage at a tech conference...</p>
+        <p>Jake smiled. Dreams weren’t just fantasies—they were plans waiting to be written in code.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Find Us</h3>
+    <div class="social-links">
+      <a href="https://www.instagram.com/Wal_D" target="_blank" aria-label="Instagram" rel="noopener noreferrer">📸 Instagram: Wal_D</a>
+      <a href="https://www.facebook.com/Wal.Do.Meng" target="_blank" aria-label="Facebook" rel="noopener noreferrer">📘 Facebook: Wal Do Meng</a>
+      <a href="https://twitter.com/Do_Meng" target="_blank" aria-label="Twitter" rel="noopener noreferrer">🐦 Twitter: Do_Meng</a>
+      <a href="https://www.tiktok.com/@Wal_DM" target="_blank" aria-label="TikTok" rel="noopener noreferrer">🎵 TikTok: Wal_DM</a>
+      <a href="https://Jexer-notdummyaccount.github.io" target="_blank" aria-label="GitHub" rel="noopener noreferrer">💻 GitHub: Jexer-notdummyaccount</a>
+    </div>
+    <hr class="footer-separator">
+    <div class="contact-info">
+      <p>📞 <strong>Phone:</strong> 0926-333-4493</p>
+      <p>✉️ <strong>Email:</strong> <a href="mailto:jexercastillo08@gmail.com">jexercastillo08@gmail.com</a></p>
+    </div>
+    <p class="copyright">&copy; 2025 Jexer Jake T. Castillo. All rights reserved.</p>
+  </footer>
+
+<!-- Script for mobile click dropdowns -->
+<script>
+  document.querySelectorAll('.dropbtn').forEach(button => {
+    button.addEventListener('click', e => {
+      const dropdown = e.target.nextElementSibling;
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // Close dropdown if clicking outside
+  window.addEventListener('click', e => {
+    document.querySelectorAll('.dropdown-content').forEach(menu => {
+      if (!menu.previousElementSibling.contains(e.target) && !menu.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
