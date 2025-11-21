@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jexer Jake | Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the creative gallery of Jexer Jake T. Castillo." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      color: #f0f0f0;
+      background: url('img/l8.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.65);
+      z-index: 0;
+    }
+
+    header, nav, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .header-text h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00c6ff;
+      margin: 0;
+    }
+
+    .header-text p {
+      font-size: 0.95rem;
+      color: #cce0ff;
+      margin: 5px 0 0;
+    }
+
+      /* Navigation Styling */
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    nav a, .dropbtn {
+      color: #f0f0f0;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Quicksand', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover, .dropbtn:hover {
+      background-color: #00c6ff;
+      color: #000;
+    }
+
+    /* Dropdown Container */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #111;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Dropdown Content */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .dropdown-content a {
+      color: #f0f0f0;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #00c6ff;
+      color: #000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #00c6ff;
+      color: #000;
+    }
+
+    /* Gallery Section */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00c6ff;
+      font-size: 2.3rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #00c6ff;
+    }
+
+    .gallery-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 25px;
+      width: calc(250px * 20);
+      animation: scroll 40s linear infinite;
+    }
+
+    .gallery-track img {
+      width: 250px;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .gallery-track img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00c6ff;
+    }
+
+    /* Pause scrolling on hover */
+    .gallery-container:hover .gallery-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* See Videos Button */
+    .btn-videos {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #000;
+      background: linear-gradient(90deg, #00c6ff, #0077ff);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,198,255,0.5);
+    }
+
+    .btn-videos:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,198,255,0.7);
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(0,0,0,0.85);
+      color: #ccc;
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00c6ff;
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .social-links a:hover {
+      color: #00c6ff;
+      text-shadow: 0 0 10px #00c6ff;
+      transform: scale(1.08);
+    }
+
+    .footer-separator {
+      width: 60%;
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 25px 0;
+    }
+
+    .contact-info {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+      color: #cce0ff;
+    }
+
+    .contact-info a {
+      color: #00c6ff;
+      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #66e0ff;
+      text-shadow: 0 0 8px #00c6ff;
+    }
+
+    footer .copyright {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-track img {
+        width: 180px;
+        height: 130px;
+      }
+      h2 { font-size: 1.8rem; }
+      footer { padding: 35px 15px; }
+      .social-links { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="img/logo1.png" alt="Profile picture of Jexer Jake T. Castillo">
+      <div class="header-text">
+        <h1>Jexer Jake's Zone</h1>
+        <p>Your gateway to creativity & innovation</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+	<a href="gal.html">Gallery</a>
+	<a href="res.html">Portfolio</a>
+    </div>
+	<a href="about.html">About Us</a>	
+    <a href="con.html">Contacts</a>
+  </nav>
+
+
+  <!-- Gallery Section -->
+  <main>
+    <h2>Creative Gallery</h2>
+
+    <div class="gallery-container">
+      <div class="gallery-track">
+        <img src="img/m1.jpeg" alt="Gallery image 1" loading="lazy">
+        <img src="img/m2.jpeg" alt="Gallery image 2" loading="lazy">
+        <img src="img/m3.jpeg" alt="Gallery image 3" loading="lazy">
+        <img src="img/m4.jpeg" alt="Gallery image 4" loading="lazy">
+        <img src="img/m5.jpeg" alt="Gallery image 5" loading="lazy">
+        <img src="img/m6.jpeg" alt="Gallery image 6" loading="lazy">
+        <img src="img/m7.jpeg" alt="Gallery image 7" loading="lazy">
+        <img src="img/m8.jpeg" alt="Gallery image 8" loading="lazy">
+        <img src="img/m9.jpeg" alt="Gallery image 9" loading="lazy">
+        <img src="img/m1.jpeg" alt="Gallery image 10" loading="lazy">
+
+        <!-- Duplicates for seamless scroll -->
+        <img src="img/m1.jpeg" alt="Gallery image 1 duplicate" loading="lazy">
+        <img src="img/m2.jpeg" alt="Gallery image 2 duplicate" loading="lazy">
+        <img src="img/m3.jpeg" alt="Gallery image 3 duplicate" loading="lazy">
+        <img src="img/m4.jpeg" alt="Gallery image 4 duplicate" loading="lazy">
+        <img src="img/m5.jpeg" alt="Gallery image 5 duplicate" loading="lazy">
+        <img src="img/m6.jpeg" alt="Gallery image 6 duplicate" loading="lazy">
+        <img src="img/m7.jpeg" alt="Gallery image 7 duplicate" loading="lazy">
+        <img src="img/m8.jpeg" alt="Gallery image 8 duplicate" loading="lazy">
+        <img src="img/m9.jpeg" alt="Gallery image 9 duplicate" loading="lazy">
+        <img src="img/m1.jpeg" alt="Gallery image 10 duplicate" loading="lazy">
+      </div>
+    </div>
+
+    <!-- See Videos Button -->
+    <a href="vid.html" class="btn-videos">See Videos</a>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Find Us</h3>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/Wal_D" target="_blank" aria-label="Instagram" rel="noopener noreferrer">📸 Instagram: Wal_D</a>
+      <a href="https://www.facebook.com/Wal.Do.Meng" target="_blank" aria-label="Facebook" rel="noopener noreferrer">📘 Facebook: Wal Do Meng</a>
+      <a href="https://twitter.com/Do_Meng" target="_blank" aria-label="Twitter" rel="noopener noreferrer">🐦 Twitter: Do_Meng</a>
+      <a href="https://www.tiktok.com/@Wal_DM" target="_blank" aria-label="TikTok" rel="noopener noreferrer">🎵 TikTok: Wal_DM</a>
+      <a href="https://Jexer-notdummyaccount.github.io" target="_blank" aria-label="GitHub" rel="noopener noreferrer">💻 GitHub: Jexer-notdummyaccount</a>
+    </div>
+
+    <hr class="footer-separator">
+
+    <div class="contact-info">
+      <p>📞 <strong>Phone:</strong> 0926-333-4493</p>
+      <p>✉️ <strong>Email:</strong> <a href="mailto:jexercastillo08@gmail.com">jexercastillo08@gmail.com</a></p>
+    </div>
+
+    <p class="copyright">&copy; 2025 Jexer Jake T. Castillo. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
